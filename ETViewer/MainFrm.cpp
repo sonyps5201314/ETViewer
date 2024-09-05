@@ -1,4 +1,4 @@
-//  ETViewer, an easy to use ETW / WPP trace viewer
+ï»¿//  ETViewer, an easy to use ETW / WPP trace viewer
 //  Copyright (C) 2011  Javier Martin Garcia (javiermartingarcia@gmail.com)
 //  
 //  This program is free software; you can redistribute it and/or
@@ -72,18 +72,18 @@ END_MESSAGE_MAP()
 
 static UINT indicators[] =
 {
-    ID_SEPARATOR,           // Indicador de línea de estado
+    ID_SEPARATOR,           // Indicador de lÃ­nea de estado
     ID_INDICATOR_CAPS,
     ID_INDICATOR_NUM,
     ID_INDICATOR_SCRL,
 };
 
 
-// Construcción o destrucción de CMainFrame
+// ConstrucciÃ³n o destrucciÃ³n de CMainFrame
 
 CMainFrame::CMainFrame()
 {
-    // TODO: agregar aquí el código de inicialización adicional de miembros
+    // TODO: agregar aquÃ­ el cÃ³digo de inicializaciÃ³n adicional de miembros
 }
 
 CMainFrame::~CMainFrame()
@@ -118,7 +118,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
         return -1;      // No se pudo crear
     }
 
-    // TODO: quitarlo si no desea información sobre herramientas
+    // TODO: quitarlo si no desea informaciÃ³n sobre herramientas
     m_FilterDialogBar.SetBarStyle(m_FilterDialogBar.GetBarStyle() |	CBRS_TOOLTIPS | CBRS_FLYBY );
     m_MainDialogBar.SetBarStyle(m_MainDialogBar.GetBarStyle() | CBRS_TOOLTIPS | CBRS_FLYBY );
     m_MainDialogBar.InitDialogBar();
@@ -164,7 +164,7 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 }
 
 
-// Diagnósticos de CMainFrame
+// DiagnÃ³sticos de CMainFrame
 
 #ifdef _DEBUG
 void CMainFrame::AssertValid() const

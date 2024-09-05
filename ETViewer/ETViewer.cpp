@@ -1,4 +1,4 @@
-//  ETViewer, an easy to use ETW / WPP trace viewer
+Ôªø//  ETViewer, an easy to use ETW / WPP trace viewer
 //  Copyright (C) 2011  Javier Martin Garcia (javiermartingarcia@gmail.com)
 //  
 //  This program is free software; you can redistribute it and/or
@@ -48,7 +48,7 @@ extern DWORD g_dwRegisteredMessage;
 
 BEGIN_MESSAGE_MAP(CETViewerApp, CWinApp)
     ON_COMMAND(ID_APP_ABOUT, OnAppAbout)
-    // Comandos de documento est·ndar basados en archivo
+    // Comandos de documento est√°ndar basados en archivo
     ON_COMMAND(ID_FILE_NEW, CWinApp::OnFileNew)
     ON_COMMAND(ID_FILE_OPEN, CWinApp::OnFileOpen)
     ON_COMMAND_RANGE(RECENT_PDB_FILE_BASE_INDEX,RECENT_PDB_FILE_BASE_INDEX+RECENT_PDB_FILE_MAX,OnRecentPDBFile)
@@ -57,7 +57,7 @@ BEGIN_MESSAGE_MAP(CETViewerApp, CWinApp)
 END_MESSAGE_MAP()
 
 
-// ConstrucciÛn de CETViewerApp
+// Construcci√≥n de CETViewerApp
 
 CETViewerApp::CETViewerApp()
 {	
@@ -104,11 +104,11 @@ CETViewerApp::~CETViewerApp()
     m_pFileMonitor=NULL;
 }
 
-// El ˙nico objeto CETViewerApp
+// El √∫nico objeto CETViewerApp
 
 CETViewerApp theApp;
 
-// InicializaciÛn de CETViewerApp
+// Inicializaci√≥n de CETViewerApp
 
 BOOL CETViewerApp::InitInstance()
 {
@@ -164,8 +164,8 @@ BOOL CETViewerApp::InitInstance()
     }
 
     // Windows XP requiere InitCommonControls() si un manifiesto de 
-    // aplicaciÛn especifica el uso de ComCtl32.dll versiÛn 6 o posterior para habilitar
-    // estilos visuales. De lo contrario, se generar· un error al crear ventanas.
+    // aplicaci√≥n especifica el uso de ComCtl32.dll versi√≥n 6 o posterior para habilitar
+    // estilos visuales. De lo contrario, se generar√° un error al crear ventanas.
     InitCommonControls();
 
     CWinApp::InitInstance();
@@ -183,20 +183,20 @@ BOOL CETViewerApp::InitInstance()
 
     this->m_nCmdShow = SW_HIDE;
 
-    // Analizar lÌnea de comandos para comandos Shell est·ndar, DDE, Archivo Abrir
+    // Analizar l√≠nea de comandos para comandos Shell est√°ndar, DDE, Archivo Abrir
     CCommandLineInfo cmdInfo;
     //ParseCommandLine(cmdInfo);
-    // Enviar comandos especificados en la lÌnea de comandos. Devolver· FALSE si
-    // la aplicaciÛn se iniciÛ con los modificadores /RegServer, /Register, /Unregserver o /Unregister.
+    // Enviar comandos especificados en la l√≠nea de comandos. Devolver√° FALSE si
+    // la aplicaci√≥n se inici√≥ con los modificadores /RegServer, /Register, /Unregserver o /Unregister.
     if (!ProcessShellCommand(cmdInfo))
         return FALSE;
 
     m_SourceFileContainer.Create(IDD_SOURCE_FILE_CONTAINER,m_pFrame);
 
-    // Se ha inicializado la ˙nica ventana; mostrarla y actualizarla
+    // Se ha inicializado la √∫nica ventana; mostrarla y actualizarla
     m_pFrame=dynamic_cast<CMainFrame *>(m_pMainWnd);
-    // Llamar a DragAcceptFiles sÛlo si existe un sufijo
-    //  En una aplicaciÛn SDI, esto debe ocurrir despuÈs de ProcessShellCommand
+    // Llamar a DragAcceptFiles s√≥lo si existe un sufijo
+    //  En una aplicaci√≥n SDI, esto debe ocurrir despu√©s de ProcessShellCommand
 
     m_SourceFileContainer.SetWindowPos(&CWnd::wndNoTopMost,0,0,0,0,SWP_NOSIZE|SWP_NOMOVE);
 
@@ -441,20 +441,20 @@ BOOL CETViewerApp::ProcessCommandLine(int argc,TCHAR **argw)
 }
 
 
-// Cuadro de di·logo CAboutDlg utilizado para el comando Acerca de
+// Cuadro de di√°logo CAboutDlg utilizado para el comando Acerca de
 
 class CAboutDlg : public CDialog
 {
 public:
     CAboutDlg();
 
-// Datos del cuadro de di·logo
+// Datos del cuadro de di√°logo
     enum { IDD = IDD_ABOUTBOX };
 
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // Compatibilidad con DDX/DDV
 
-// ImplementaciÛn
+// Implementaci√≥n
 protected:
     DECLARE_MESSAGE_MAP()
 };
@@ -471,7 +471,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
 END_MESSAGE_MAP()
 
-// Comando de la aplicaciÛn para ejecutar el cuadro de di·logo
+// Comando de la aplicaci√≥n para ejecutar el cuadro de di√°logo
 void CETViewerApp::OnAppAbout()
 {
     CAboutDlg aboutDlg;

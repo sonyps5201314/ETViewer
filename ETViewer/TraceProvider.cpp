@@ -876,7 +876,7 @@ BOOL CALLBACK CTracePDBReader::SymbolEnumerationCallback(PSYMBOL_INFO pSymInfo, 
 
             pThis->m_sTempFormatEntries.push_back(pFormatEntry);
 
-            pThis->AddSourceFile(sSourceFileGUID,lineInfo.FileName);
+			pThis->AddSourceFile(sSourceFileGUID, lineInfo.FileName ? lineInfo.FileName : _T(""));
 
             delete [] pFormatString;
             delete [] pFunctionSymbol;

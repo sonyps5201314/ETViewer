@@ -272,12 +272,13 @@ bool CTraceController::Format(STraceEvenTracingNormalizedData *pData)
             pCurrentParam+=sizeof(LARGE_INTEGER);
             currentLen += _stprintf_s(sTraceText + currentLen, _countof(sTraceText) - currentLen, pElement->pFormatString, qValue);
             break;
-        case eTraceFormatElementType_AnsiString:
-            {
-                DWORD dwBytes = _stprintf_s(sTraceText + currentLen, _countof(sTraceText) - currentLen, pElement->pFormatString, pCurrentParam);
-                currentLen+=dwBytes;
-                pCurrentParam+=_tcslen((TCHAR*)pCurrentParam)+1;
-            }
+		case eTraceFormatElementType_AnsiString:
+		    {
+			    _stprintf_s(pTempBuffer, _countof(sTraceText), _T("%hs"), (CHAR*)pCurrentParam);
+			    DWORD dwBytes = _stprintf_s(sTraceText + currentLen, _countof(sTraceText) - currentLen, pElement->pFormatString, pTempBuffer);
+			    currentLen += dwBytes;
+			    pCurrentParam += (strlen((char*)pCurrentParam) + 1) * 1;
+		    }
             break;
         case eTraceFormatElementType_UnicodeString:
             {

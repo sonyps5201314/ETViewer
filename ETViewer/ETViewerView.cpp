@@ -1,4 +1,4 @@
-//  ETViewer, an easy to use ETW / WPP trace viewer
+ï»¿//  ETViewer, an easy to use ETW / WPP trace viewer
 //  Copyright (C) 2011  Javier Martin Garcia (javiermartingarcia@gmail.com)
 //  
 //  This program is free software; you can redistribute it and/or
@@ -60,11 +60,11 @@ BEGIN_MESSAGE_MAP(CETViewerView, CListView)
     ON_NOTIFY_REFLECT(LVN_COLUMNCLICK, OnLvnColumnclick)
 END_MESSAGE_MAP()
 
-// Construcción o destrucción de CETViewerView
+// ConstrucciÃ³n o destrucciÃ³n de CETViewerView
 
 CETViewerView::CETViewerView()
 {
-    // TODO: agregar aquí el código de construcción
+    // TODO: agregar aquÃ­ el cÃ³digo de construcciÃ³n
 
     m_nUnformattedTraces=0;
     m_nLastFocusedSequenceIndex=0;
@@ -249,7 +249,7 @@ void CETViewerView::OnInitialUpdate()
     CListView::OnInitialUpdate();
 }
 
-// Diagnósticos de CETViewerView
+// DiagnÃ³sticos de CETViewerView
 
 #ifdef _DEBUG
 void CETViewerView::AssertValid() const
@@ -262,7 +262,7 @@ void CETViewerView::Dump(CDumpContext& dc) const
     CListView::Dump(dc);
 }
 
-CETViewerDoc* CETViewerView::GetDocument() const // La versión de no depuración es en línea
+CETViewerDoc* CETViewerView::GetDocument() const // La versiÃ³n de no depuraciÃ³n es en lÃ­nea
 {
     ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CETViewerDoc)));
     return (CETViewerDoc*)m_pDocument;
@@ -273,7 +273,7 @@ CETViewerDoc* CETViewerView::GetDocument() const // La versión de no depuración 
 // Controladores de mensaje de CETViewerView
 void CETViewerView::OnStyleChanged(int /*nStyleType*/, LPSTYLESTRUCT /*lpStyleStruct*/)
 {
-    //TODO: agregar código para que el usuario cambie el estilo de vista de la ventana
+    //TODO: agregar cÃ³digo para que el usuario cambie el estilo de vista de la ventana
     
     Default();
 }
@@ -555,6 +555,10 @@ TCHAR *CETViewerView::GetTraceText(SETViewerTrace *pTrace,CColumnInfo *pColumn,T
     switch(pColumn->id)
     {
     case eETViewerColumn_Text:
+		if (pTrace->trace.sText.length() + 1 >= nAuxLen)
+		{
+			pTrace->trace.sText[nAuxLen - 1] = 0;
+		}
         _tcscpy_s(pAuxBuffer,nAuxLen,pTrace->trace.sText.c_str());
         break;
     case eETViewerColumn_PIDTID:
